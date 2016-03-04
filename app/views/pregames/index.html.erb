@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pregames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pregames.each do |pregame| %>
+      <tr>
+        <td><%= link_to 'Show', pregame %></td>
+        <td><%= link_to 'Edit', edit_pregame_path(pregame) %></td>
+        <td><%= link_to 'Destroy', pregame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pregame', new_pregame_path %>

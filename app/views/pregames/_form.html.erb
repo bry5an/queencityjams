@@ -1,0 +1,16 @@
+<%= simple_form_for [@event, @pregame] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :place, required: true, autofocus: true %>
+    <%= f.input :address, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :state, required: true %>
+    <%= f.input :zipcode, required: true %>
+    <%= f.input :special, required: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-6">
+<div class="flex">
+  <!--<div class="flex">-->
     <div class="well" id="event">
       <h2><%= @event.headliner %></h2>
       <% if @event.supporting.count > 0 %>
@@ -17,11 +17,19 @@
       <h5>Click <%= link_to "here", "#{@event.uri}" %> to purchase tickets.</h5>
     
     </div>
-  </div>
-  <div class="col-md-6">
+  <!--</div>-->
+  <!--<div class="col-md-6">-->
     <div class="well" id="pregame">
-      <h2>Pre-Jams</h2>
+      <h2>PreJams</h2>
       <hr>
+        <% if @event.pregames.count != 0 %>
+          <% @event.pregames.each do |pregame| %>
+            <h4><%= pregame.place %></h4>
+          <% end %>
+        <% else %>
+          <h4>Currently no PreJams for this event.</h4>
+          <h5>Click <%= link_to "here", new_event_pregame_path(@event) %> to start the party!</h5>
+        <% end %>
     </div>
-  </div>
+  <!--</div>-->
 </div>

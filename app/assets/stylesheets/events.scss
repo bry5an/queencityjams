@@ -7,6 +7,11 @@ body {
   background-size: cover;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
 .well {
   background: rgba(0, 0, 0, .7);
   color: #FFF;
@@ -34,9 +39,11 @@ hr {
   color: #000;
 }
 
-#event, #pregame {
-  float: both;
-  display: inline-block;
-  margin: 0 auto;
+#event {
+  width: 55%;
+}
+
+#pregame {
+  width: 35%;
 }
 
