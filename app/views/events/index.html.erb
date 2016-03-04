@@ -1,0 +1,26 @@
+<div class="well">
+  <h1>Go See Live Music</h1>
+  
+  <div class="search">
+    <%= form_tag events_path, :enforce_utf8 => false, :method => "get" do %>
+      <p>
+        <%= text_field_tag :search, params[:search], placeholder: "Artist/Venue Search", :required => true %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
+  </div>
+  <hr>
+  <h4><%= page_entries_info @events %></h4>
+  <hr>
+  <% if @artist_search %>
+    <% @artist_search.each do |artist| %>
+        <p><strong><%= link_to artist.event_name, artist %></strong></p>
+    <% end %>
+    <p><%= link_to "Back to the Events Listing", root_path %></p>
+  <% else %>
+    <% @events.each do |event| %>
+      <p><strong><%= link_to event.event_name, event %></strong></p>
+    <% end %>
+    <p></p><strong><%= paginate @events %></strong></p>
+  <% end %>
+</div>

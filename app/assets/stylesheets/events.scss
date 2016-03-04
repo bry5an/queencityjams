@@ -1,0 +1,42 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-image: url("crowd.jpg");
+  background-size: cover;
+}
+
+.well {
+  background: rgba(0, 0, 0, .7);
+  color: #FFF;
+  border-radius: 15px;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px;
+  min-height: 600px;
+  h1 {
+    font-size: 5em;
+    padding: 10px 0px 10px 0
+  }
+  a {
+    color: #7CCCEC;
+  }
+}
+
+hr {
+  color: #a9a9a9;
+}
+
+.search {
+  color: #000;
+}
+
+#event, #pregame {
+  float: both;
+  display: inline-block;
+  margin: 0 auto;
+}
+

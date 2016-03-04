@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="well" id="event">
+      <h2><%= @event.headliner %></h2>
+      <% if @event.supporting.count > 0 %>
+        <h5><em>with</em></h5>
+        <% @event.supporting.each do |support| %>
+          <h4><%= support %></h4>
+        <% end %>
+      <% end %>
+      <hr>
+      <% if @event.start_date && @event.start_time %>
+        <h4><%= "#{@event.start_date.strftime("%A, %B %e, %Y")} - #{@event.start_time.strftime("%l:%M%p")}" %></h4>
+      <% end %>
+      <h4><%= link_to @event.venue_name, "#{@event.venue_uri}" %></h4>
+      <h5><%= @event.address %></h5>
+      <h5>Click <%= link_to "here", "#{@event.uri}" %> to purchase tickets.</h5>
+    
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well" id="pregame">
+      <h2>Pre-Jams</h2>
+      <hr>
+    </div>
+  </div>
+</div>
