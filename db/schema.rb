@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304113934) do
+ActiveRecord::Schema.define(version: 20160307210932) do
 
   create_table "event_artists", force: :cascade do |t|
     t.string   "artist_uri"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20160304113934) do
 
   add_index "events", ["songkick_event_id"], name: "index_events_on_songkick_event_id", unique: true
 
+  create_table "pregame_to_users", force: :cascade do |t|
+    t.integer  "pregame_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pregames", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "place"
@@ -89,7 +96,6 @@ ActiveRecord::Schema.define(version: 20160304113934) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "pregame_id"
     t.string   "username"
   end
 

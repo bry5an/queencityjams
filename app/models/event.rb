@@ -6,7 +6,8 @@ class Event < ActiveRecord::Base
   has_many :event_artists
   has_many :pregames
   
-  paginates_per 10
+  
+  paginates_per 7
   
   def artists
     EventArtist.where(event_id: self.songkick_event_id)

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :pregame
-
+  has_many :pregame_to_users
+  has_many :pregames, :through => :pregame_to_users
 
 end

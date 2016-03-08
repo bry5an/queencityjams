@@ -10,11 +10,11 @@
     <% end %>
   </div>
   <hr>
-  <h4><%= page_entries_info @events %></h4>
+  <p><%= page_entries_info @events %></p>
   <hr>
   <% if @artist_search %>
     <% @artist_search.each do |artist| %>
-        <p><strong><%= link_to artist.event_name, artist %></strong></p>
+        <p><%= link_to artist.event_name, artist %></p>
     <% end %>
     <p><%= link_to "Back to the Events Listing", root_path %></p>
   <% else %>

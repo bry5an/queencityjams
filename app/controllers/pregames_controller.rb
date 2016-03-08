@@ -1,5 +1,5 @@
 class PregamesController < ApplicationController
-  before_action :set_pregame, only: [:show, :edit, :update, :destroy]
+  before_action :set_pregame, only: [:show, :edit, :update, :destroy, :join, :unjoin]
 
   # GET /pregames
   # GET /pregames.json
@@ -10,6 +10,23 @@ class PregamesController < ApplicationController
   # GET /pregames/1
   # GET /pregames/1.json
   def show
+  end
+  
+  def join
+    @pregame.pregame_to_users.create(user_id: current_user.id)
+    respond_to do |format|
+      format.html { redirect_to @pregame }
+    end
+  end
+  
+  def unjoin
+    @pregame.pregame_to_users.find_by(user_id: current_user.id).delete
+    if @pregame.users.count == 0
+      @pregame.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to @pregame }
+    end
   end
 
   # GET /pregames/new
@@ -33,8 +50,9 @@ class PregamesController < ApplicationController
 
     respond_to do |format|
       if @pregame.save
-        format.html { redirect_to @event, notice: 'Pregame was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        format.html { redirect_to @pregame }
+        format.json { render :show, status: :created, location: @pregame }
+        @pregame.pregame_to_users.create(user_id: current_user.id)
       else
         format.html { render :new }
         format.json { render json: @pregame.errors, status: :unprocessable_entity }

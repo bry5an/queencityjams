@@ -1,4 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_pregame_path(@pregame) %> |
-<%= link_to 'Back', pregames_path %>
+<div class="flex">
+  <div class="well">
+    <h2>PreJam for <%= @pregame.event.event_artists[0].artist_name %></h2>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h4><%= @pregame.place %></h4>
+        <p><%= @pregame.address %></p>
+        <p><%= @pregame.city %>, <%= @pregame.state %></p>
+        <p>* <%= @pregame.special %> *</p>
+      </div>
+      <div class="col-md-6">
+        <% if @pregame.users.count > 0 %>
+          <% if @pregame.users.count == 1 %>
+            <h4>1 person attending this event:</h4>
+          <% else %>
+            <h4><%= @pregame.users.count %> people attending this event:</h4>
+          <% end %>
+          <p><%= @pregame.users.map(&:username).join(", ") %></p>
+        <% else %>
+          <h4>Currently, no one is attending this PreJam</h4>
+        <% end %>
+        <% if @pregame.users.include?(current_user) %>
+          <%= link_to unjoin_pregame_path, method: :delete do %>
+            <button type="button" class="btn btn-default">I Can No Longer Attend.</button>
+          <% end %>
+        <% else %>
+          <%= link_to join_pregame_path, method: :put do %>
+            <button type="button" class="btn btn-default">I'm Going</button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% link_to 'Edit', edit_pregame_path(@pregame) %> |
+<% link_to 'Back', pregames_path %>
