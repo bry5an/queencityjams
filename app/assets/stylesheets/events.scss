@@ -1,6 +1,6 @@
-// Place all the styles related to the Events controller here.
+/*// Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 body {
   background-image: url("crowd.jpg");
@@ -22,13 +22,14 @@ body {
   padding: 0;
   border: 1px;
   min-height: 450px;
-  h1 {
-    font-size: 4em;
-    padding: 10px 0px 10px 0
-  }
-  a {
+}
+ 
+h1 {
+  font-size: 4em;
+  padding: 10px 0px 10px 0
+}
+a {
     color: #7CCCEC;
-  }
 }
 
 hr {

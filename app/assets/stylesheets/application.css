@@ -14,3 +14,39 @@
  *= require_self
  */
 
+.orange-title {
+	color: #FFA42E;
+	text-shadow: 1px 1px 1px black!important; 
+}
+
+.well-form {
+  background: rgba(0, 0, 0, .7);
+  color: #FFF;
+  border-radius: 15px;
+  width: 50%;
+  margin: 20px;
+  padding: 20px;
+  border: 1px;
+  min-height: 400px;
+}
+
+.text-style {
+	color: #FFA42E;
+
+}
+
+.logo {
+	margin-top: -14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

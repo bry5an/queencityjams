@@ -8,7 +8,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "QCJams", root_path, class: "navbar-brand" %>
+      <div class="logo">
+      <%= link_to image_tag("qcjamzcopy.png"), root_path, class: "navbar-brand" %>
+      </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +23,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? == false %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, :class => "text-style" %></li>
           <li><%= link_to "Sign In", new_user_session_path %></li>
         <% else %>
           <li class="dropdown">
